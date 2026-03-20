@@ -3,6 +3,16 @@
   "name": "YouTube Tab Sorter",
   "version": "1.0",
   "description": "Sort YouTube tabs by title, uploader, date, or duration.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{3ae87c82-d04d-4d26-accc-197f94e405e2}",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
   "icons": {
     "48": "icons/icon.svg",
     "128": "icons/icon.svg"
