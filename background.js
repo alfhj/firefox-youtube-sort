@@ -124,6 +124,8 @@ async function sortTabs(tabs, sortBy, sortOrder) {
           videoId = url.pathname.slice(1);
         } else if (url.pathname === '/watch' && url.searchParams.has('v')) {
           videoId = url.searchParams.get('v');
+        } else if (url.pathname.startsWith('/shorts/')) {
+          videoId = url.pathname.split('/')[2];
         }
 
         if (videoId) {
