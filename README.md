@@ -1,4 +1,4 @@
-# YouTube Tab Sorter
+# YouTube Tab Sort
 
 A Firefox extension that sorts your selected YouTube tabs by title, uploader, upload date, or duration.
 

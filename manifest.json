@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Tab Sorter",
+  "name": "YouTube Tab Sort",
   "version": "1.0",
   "description": "Sort YouTube tabs by title, uploader, date, or duration.",
   "browser_specific_settings": {
@@ -34,6 +34,6 @@
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "icons/icon.svg",
-    "default_title": "YouTube Tab Sorter Settings"
+    "default_title": "YouTube Tab Sort Settings"
   }
 }
