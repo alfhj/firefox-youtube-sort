@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Tab Sorter",
+  "version": "1.0",
+  "description": "Sort YouTube tabs by title, uploader, date, or duration.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "128": "icons/icon.svg"
+  },
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon.svg",
+    "default_title": "YouTube Tab Sorter Settings"
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <g stroke="black" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Film Strip Outline -->
+    <rect x="4" y="4" width="60" height="120" rx="12" />
+    
+    <!-- Film Strip Frame Dividers -->
+    <line x1="4" y1="44" x2="64" y2="44" />
+    <line x1="4" y1="84" x2="64" y2="84" />
+
+    <!-- Up Triangle -->
+    <path d="M 84 44 L 104 4 L 124 44 Z" />
+
+    <!-- Down Triangle -->
+    <path d="M 84 84 L 124 84 L 104 124 Z" />
+  </g>
+</svg>
