@@ -15,3 +15,9 @@ A Firefox extension that sorts your selected YouTube tabs by title, uploader, up
    *Note: Without an API key, you can only sort by Title.*
 3. Select multiple tabs in Firefox (using `Ctrl`-click or `Shift`-click).
 4. Right-click on one of the selected tabs, navigate to **Sort YouTube tabs**, choose your metric (e.g., Title, Uploader), and select **Ascending** or **Descending**.
+
+## Building
+To build the package for distribution, you can use the `web-ext` CLI tool by Mozilla.
+```bash
+npx web-ext build
+```

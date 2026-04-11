@@ -183,8 +183,11 @@ async function sortTabs(tabs, sortBy, sortOrder) {
                 toCache['yt_vid_' + item.id] = meta;
 
                 // Update in memory representation
-                const vt = youtubeVideoTabs.find(v => v.videoId === item.id);
-                if (vt) vt.metadata = meta;
+                youtubeVideoTabs.forEach(vt => {
+                  if (vt.videoId === item.id) {
+                    vt.metadata = meta;
+                  }
+                });
               });
 
               await browser.storage.local.set(toCache);
