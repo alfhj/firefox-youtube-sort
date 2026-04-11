@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const versionSpan = document.getElementById('version');
+  if (versionSpan) {
+    versionSpan.textContent = 'v' + browser.runtime.getManifest().version;
+  }
+
   const apiKeyInput = document.getElementById('apiKey');
   const saveBtn = document.getElementById('saveBtn');
   const statusDiv = document.getElementById('status');
