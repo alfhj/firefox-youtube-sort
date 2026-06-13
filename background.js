@@ -243,8 +243,8 @@ async function sortTabs(tabs, sortBy, sortOrder) {
 
   // 5. Combine and Move Tabs
   const allReorderedTabs = [
-    ...youtubeVideoTabs.map(v => v.tab),
     ...youtubeOtherTabs,
+    ...youtubeVideoTabs.map(v => v.tab),
     ...nonYoutubeTabs
   ];
 
