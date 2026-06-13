@@ -254,3 +254,19 @@ async function sortTabs(tabs, sortBy, sortOrder) {
 
   await browser.tabs.move(tabIdsToMove, { index: minIndex });
 }
+
+browser.runtime.onMessage.addListener(async (message, sender) => {
+  if (message.action === 'sortAllTabs') {
+    try {
+      const tabs = await browser.tabs.query({ currentWindow: true });
+      setStatus('busy');
+      await sortTabs(tabs, message.sortBy, message.sortOrder);
+      setStatus('success');
+      return { success: true };
+    } catch (error) {
+      console.error("Error sorting tabs:", error);
+      logError("Sorting Error", error.message || "An unknown error occurred.");
+      throw error;
+    }
+  }
+});

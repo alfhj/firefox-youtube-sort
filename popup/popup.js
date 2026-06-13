@@ -16,9 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load existing settings and potential errors
   browser.storage.local.get({
     apiKey: '',
-    lastError: null
+    lastError: null,
+    sortPrefs: { sortBy: 'title', sortOrder: 'asc' }
   }).then(items => {
     apiKeyInput.value = items.apiKey;
+    sortBySelect.value = items.sortPrefs.sortBy;
+    sortOrderSelect.value = items.sortPrefs.sortOrder;
 
     if (items.lastError) {
       errorTime.textContent = items.lastError.timestamp + ' - ' + items.lastError.title;
@@ -32,6 +35,44 @@ document.addEventListener('DOMContentLoaded', () => {
     browser.storage.local.remove('lastError').then(() => {
       errorContainer.style.display = 'none';
       browser.action.setBadgeText({ text: "" }); // Clear badge
+    });
+  });
+
+  // Sort all tabs in current window
+  const sortAllBtn = document.getElementById('sortAllBtn');
+  const sortBySelect = document.getElementById('sortBy');
+  const sortOrderSelect = document.getElementById('sortOrder');
+  const sortStatus = document.getElementById('sortStatus');
+
+  function saveSortPrefs() {
+    browser.storage.local.set({
+      sortPrefs: { sortBy: sortBySelect.value, sortOrder: sortOrderSelect.value }
+    });
+  }
+
+  sortBySelect.addEventListener('change', saveSortPrefs);
+  sortOrderSelect.addEventListener('change', saveSortPrefs);
+
+  sortAllBtn.addEventListener('click', () => {
+    const sortBy = sortBySelect.value;
+    const sortOrder = sortOrderSelect.value;
+
+    saveSortPrefs();
+
+    sortStatus.textContent = 'Sorting...';
+
+    browser.runtime.sendMessage({
+      action: 'sortAllTabs',
+      sortBy: sortBy,
+      sortOrder: sortOrder
+    }).then(() => {
+      sortStatus.textContent = 'Tabs sorted!';
+      setTimeout(() => {
+        sortStatus.textContent = '';
+      }, 2000);
+    }).catch(error => {
+      sortStatus.textContent = 'Error: ' + error.message;
+      sortStatus.style.color = 'red';
     });
   });
 

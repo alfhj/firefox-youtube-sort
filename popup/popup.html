@@ -30,6 +30,30 @@
     <div id="error-msg"></div>
   </div>
 
+  <hr>
+
+  <div class="sort-all-section">
+    <h3>Sort all tabs</h3>
+    <div class="setting-group">
+      <label for="sortBy">Sort by:</label>
+      <select id="sortBy">
+        <option value="title">Title</option>
+        <option value="uploader">Uploader</option>
+        <option value="date">Date of Upload</option>
+        <option value="duration">Duration</option>
+      </select>
+    </div>
+    <div class="setting-group">
+      <label for="sortOrder">Order:</label>
+      <select id="sortOrder">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+    </div>
+    <button id="sortAllBtn">Sort</button>
+    <div id="sortStatus"></div>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 
