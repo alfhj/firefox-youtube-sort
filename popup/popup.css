@@ -133,6 +133,10 @@ hr {
   margin-bottom: 12px;
 }
 
+#sortAndGroupBtn {
+  margin-top: 8px;
+}
+
 #sortStatus {
   margin-top: 12px;
   font-size: 14px;
